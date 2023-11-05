@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "arxamination = arxamination.main:main",
+            "arxamination = main:main",
         ],
     },
 )
