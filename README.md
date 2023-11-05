@@ -1,6 +1,6 @@
-# prompt-arXamination
+# arXamination
 
-`prompt-arXamination` is a helpful tool powered by a Large Language Model (LLM) that streamlines the initial review of arXiv papers. It efficiently provides insights into key aspects of research papers, helping users quickly gauge their quality and relevance. Whether you're a researcher, student, or professional, this tool offers a convenient way to identify essential information in arXiv papers, saving you time and effort during the paper selection process. Make your research endeavors more manageable with prompt-arXamination.
+`arXamination` is a helpful tool powered by a Large Language Model (LLM) that streamlines the initial review of arXiv papers. It efficiently provides insights into key aspects of research papers, helping users quickly gauge their quality and relevance. Whether you're a researcher, student, or professional, this tool offers a convenient way to identify essential information in arXiv papers, saving you time and effort during the paper selection process. Make your research endeavors more manageable with arXamination.
 
 ![Screenshot of arXaminator analyzing the Transformers-paper](screenshot.png)
 
@@ -9,13 +9,13 @@
 Clone the repository:
 
 ```shell
-git clone https://github.com/rmattila/prompt-arXamination.git 
+git clone https://github.com/rmattila/arXamination.git 
 ```
 
 Navigate to the project directory:
 
 ```shell
-cd prompt-arXamination 
+cd arXamination 
 ```
 
 Create a virtual environment (optional but recommended):
@@ -56,7 +56,7 @@ The modular design makes it easy to extend the functionality to use other LLMs (
 ## Ideas for Future Improvements
 
 - Implement retrieval-augmented generation (RAG) to reduce the number of LLM queries
-- Improve the prompt templates
+- Improve the prompt templates and the set of questions
 - Enable users to process their own (local) PDF files -- i.e., not just arXiv papers 
 - Integration with reference managers (e.g., [Zotero](https://www.zotero.org/) and [Mendeley](https://www.mendeley.com/)).
 - Implement support for other LLMs (e.g., OpenAI via API)
