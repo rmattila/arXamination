@@ -52,3 +52,12 @@ This command-line tool will fetch and analyze the specified arXiv article.
 This tool utilizes [GPT4All](https://gpt4all.io/index.html), which allows you to run LLMs locally, eliminating the need for costly API calls. You can specify a specific model in the `config.json`-file. 
 
 The modular design makes it easy to extend the functionality to use other LLMs (e.g., OpenAI via API). By inheriting the `BaseLLM`-class and implementing the `get_LLM_response`-function, you can seamlessly integrate additional LLMs into the system to meet your specific needs.
+
+## Ideas for Future Improvements
+
+- Implement retrieval-augmented generation (RAG) to reduce the number of LLM queries
+- Improve the prompt templates
+- Enable users to process their own (local) PDF files -- i.e., not just arXiv papers 
+- Integration with reference managers (e.g., [Zotero](https://www.zotero.org/) and [Mendeley](https://www.mendeley.com/)).
+- Implement support for other LLMs (e.g., OpenAI via API)
+- Generate reports in PDF and HTML formats for better documentation and sharing options
