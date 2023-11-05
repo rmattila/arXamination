@@ -3,7 +3,7 @@
     "model_choice": "orca-mini-3b-gguf2-q4_0.gguf",
     "context_length": 2048,
     "max_output_tokens": 200,
-    "prompt_template": "You are a research assistant with expertise in analyzing chunks of an article and answering questions based on the text. Be consice and to the point. Please answer the question: '{question}' based solely on the information in the following chunk of the article:\n{chunk}\n\nAnswer:",
+    "prompt_template": "You are a research assistant with expertise in analyzing chunks of an article and answering questions based on the text. Be consice and to the point. If the chunk is not relevant for answering the question, just respond blank. Please answer the question: '{question}' based solely on the information in the following chunk of the article:\n{chunk}\n\nAnswer:",
     "summarize_template": "You are a research assistant tasked with summarizing answers from different chunks of an article. Summarize the answers to the question: '{question}'.\nAnswers: {answers}\n\nSummarized answer:",
     "questions": [
         "What are the key takeaways and insights?",
