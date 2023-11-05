@@ -2,6 +2,8 @@
 
 `prompt-arXamination` is a helpful tool powered by a Large Language Model (LLM) that streamlines the initial review of arXiv papers. It efficiently provides insights into key aspects of research papers, helping users quickly gauge their quality and relevance. Whether you're a researcher, student, or professional, this tool offers a convenient way to identify essential information in arXiv papers, saving you time and effort during the paper selection process. Make your research endeavors more manageable with prompt-arXamination.
 
+![Screenshot of arXaminator analyzing the Transformers-paper](screenshot.png)
+
 ## Installation
 
 Clone the repository:
