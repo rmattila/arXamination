@@ -1,6 +1,6 @@
 # arXamination
 
-`arXamination` is a helpful tool powered by a Large Language Model (LLM) that streamlines the initial review of arXiv papers. It efficiently provides insights into key aspects of research papers, helping users quickly gauge their quality and relevance. Whether you're a researcher, student, or professional, this tool offers a convenient way to identify essential information in arXiv papers, saving you time and effort during the paper selection process. Make your research endeavors more manageable with arXamination.
+`arXamination` is a helpful tool powered by a Large Language Model (LLM) that streamlines the initial review of arXiv papers. It efficiently provides insights into key aspects of research papers, helping users quickly gauge their quality and relevance. Whether you're a researcher, student, or professional, this tool offers a convenient way to identify essential information in arXiv papers, saving you time and effort during the paper selection process. Make your research endeavors more manageable with `arXamination`.
 
 ![Screenshot of arXaminator analyzing the Transformers-paper](screenshot.png)
 
@@ -31,7 +31,7 @@ Install the project's dependencies:
 pip install -r requirements.txt
 ```
 
-Next, install the arxamination package itself. This step is necessary for users who want to run the command-line tool:
+Next, install the `arxamination` package itself. This step is necessary for users who want to run the command-line tool:
 
 ```shell
 pip install .
@@ -39,7 +39,7 @@ pip install .
 
 ## Usage
 
-Run the arxamination tool with the arXiv article ID as a command-line argument. For example:
+Run the `arxamination` tool with the arXiv article ID as a command-line argument. For example:
 
 ```shell
 arxamination 1706.03762
