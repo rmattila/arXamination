@@ -53,11 +53,14 @@ This tool utilizes [GPT4All](https://gpt4all.io/index.html), which allows you to
 
 The modular design makes it easy to extend the functionality to use other LLMs (e.g., OpenAI via API). By inheriting the `BaseLLM`-class and implementing the `get_LLM_response`-function, you can seamlessly integrate additional LLMs into the system to meet your specific needs.
 
-## Ideas for Future Improvements
+## Ideas for future improvements
 
 - Implement retrieval-augmented generation (RAG) to reduce the number of LLM queries
 - Improve the prompt templates and the set of questions
+    - Add more "sanity check" questions to evaluate the research's soundness
+    - Develop questions aimed at generating new ideas or insights from the article
 - Enable users to process their own (local) PDF files -- i.e., not just arXiv papers 
 - Integration with reference managers (e.g., [Zotero](https://www.zotero.org/) and [Mendeley](https://www.mendeley.com/)).
 - Implement support for other LLMs (e.g., OpenAI via API)
 - Generate reports in PDF and HTML formats for better documentation and sharing options
+- Analyze, compare, and synthesize insights from multiple articles, identifying commonalities, differences, and generating novel ideas that integrate findings across papers
