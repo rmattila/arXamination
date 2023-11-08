@@ -1,5 +1,3 @@
-chunk_margin_factor = 0.75
-
 prompt_template = """
 You are a research assistant with expertise in analyzing chunks of an article and answering questions based on the text. 
 Be concise and to the point. 
@@ -26,17 +24,20 @@ Final answer for the whole text (Your response should accurately reflect the pre
 
 questions = [
     "What are the key takeaways and insights?",
-    "Do the authors evaluate the proposed method on real-world data?",
+    "Do the authors evaluate the proposed method on any real-world data?",
     "Do the authors discuss potential downsides or limitations of their proposed algorithm?",
     "Are there any novel or innovative contributions in this paper?",
-    "Are there relevant related works and comparisons with them?",
-    "Do the authors mention future directions or areas for further research?",
+    "Are there mentions of relevant related works and comparisons with them?",
+    "Are future directions or areas for further research mentioned?",
     "Is there a real-world application or use case for the proposed approach?",
     "Are there any surprising or unexpected findings in the paper?",
     "What datasets and benchmarks are used in the experiments?",
-    "What are keywords you would use to summarize the research?",
-    "What are practical applications or domains where the findings of this research could be applied?"
+    "What are keywords can be used to best summarize the research?",
+    "What are practical applications or domains where the research could be applied?"
 ]
+
+# how much smaller each chunk should be relative to the model's context length
+chunk_margin_factor = 0.50
 
 [models]
 
