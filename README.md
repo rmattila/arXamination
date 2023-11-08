@@ -47,11 +47,15 @@ arxamination 1706.03762
 
 This command-line tool will fetch and analyze the specified arXiv article.
 
+
 ## What LLM is used? Do I need an API key?
 
-This tool utilizes [GPT4All](https://gpt4all.io/index.html), which allows you to run LLMs locally, eliminating the need for costly API calls. You can specify a specific model in the `config.json`-file. 
+This tool defaults to using [GPT4All](https://gpt4all.io/index.html), which allows for the local execution of LLMs (no GPU required), thereby avoiding API costs. The `config.toml` file is used to adjust model settings.
 
-The modular design makes it easy to extend the functionality to use other LLMs (e.g., OpenAI via API). By inheriting the `BaseLLM`-class and implementing the `get_LLM_response`-function, you can seamlessly integrate additional LLMs into the system to meet your specific needs.
+Additionally, the tool supports OpenAI's API for models such as GPT-3.5 and 4, with the implementation already included. The architecture is designed for easy extension to other LLM services. To integrate a new service, simply extend the `BaseLLM` class and implement the `get_LLM_response` method.
+
+For using OpenAI's models through their API, specify your preferences in the `config.toml` file. To prevent the API key from being accidentally exposed in your configuration file, it is recommended to set it via the `OPENAI_API_KEY` environment variable.
+
 
 ## Ideas for future improvements
 
