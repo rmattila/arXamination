@@ -1,10 +1,11 @@
 import argparse
 import random
 from tqdm import tqdm
+import toml
 
 from arxamination import arxiv_parser
-from arxamination.llm_interaction import LocalLLM
-from arxamination.utils import load_config_file, make_bold
+from arxamination.llm_interaction import llm_factory
+from arxamination.utils import make_bold
 
 
 def main():
@@ -21,6 +22,13 @@ def main():
     parser.add_argument(
         "--verbose", "-v", action="store_true", help="Increase output verbosity"
     )
+    parser.add_argument(
+        "--model",
+        "-m",
+        help="Specify the model to use",
+        choices=["local", "openai"],
+        default="local",
+    )
 
     args = parser.parse_args()
     arxiv_id = args.arxiv_id
@@ -33,12 +41,11 @@ def main():
         print(f"Failed to load text of {arxiv_id}")
         return
 
-    # Load config and LLM
-    config_file = "config.toml"
-    llm = LocalLLM(config_file, verbose=args.verbose)
-    config = load_config_file(config_file)
+    # Load config
+    config = toml.load("config.toml")
 
-    print(f"Using model {config['model_choice']}")
+    # Create an LLM based on user's choice
+    llm = llm_factory(args.model, config, args.verbose)
 
     # If num_questions has not been set, go through all questions; otherwise, sample num_questions
     if num_questions is None:
