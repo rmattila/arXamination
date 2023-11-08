@@ -1,6 +1,7 @@
 from tqdm import tqdm
 import json
 from typing import List, Dict
+import time
 
 from transformers import GPT2Tokenizer
 from transformers import logging as trfms_log
@@ -32,6 +33,9 @@ class BaseLLM:
 
                 if self.verbose:
                     tqdm.write(f"Answer for Chunk {chunk_number}: {answer}\n")
+
+                # Pause in order to prevent rate-limiting
+                time.sleep(self.config['delay'])
 
                 answers.append(answer)
 
@@ -89,7 +93,7 @@ class BaseLLM:
 
     def summarize_answers(self, question: str, answers: List[str]) -> str:
         """Summarize all chunk-answers for a given question and return a summary."""
-        answers_str = "\n".join(answers)
+        answers_str = '\n\n'.join([f'Answer based on chunk {i}/{len(answers)}: {answer}' for i, answer in enumerate(answers, 1)])
         prompt = self.config["summarize_template"].format(
             question=question, answers=answers_str
         )
@@ -150,6 +154,7 @@ class OpenAILLM(BaseLLM):
         response = self.client.chat.completions.create(
             model=self.config["model_name"],
             messages=[{"role": "user", "content": prompt}],
+            temperature=self.config['temperature']
         )
         return response.choices[0].message.content
 
