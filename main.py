@@ -18,6 +18,9 @@ def main():
         default=None,
         help="Number of questions to sample",
     )
+    parser.add_argument(
+        "--verbose", "-v", action="store_true", help="Increase output verbosity"
+    )
 
     args = parser.parse_args()
     arxiv_id = args.arxiv_id
@@ -32,7 +35,7 @@ def main():
 
     # Load config and LLM
     config_file = "config.json"
-    llm = LocalLLM(config_file)
+    llm = LocalLLM(config_file, verbose=args.verbose)
     config = load_config_file(config_file)
 
     print(f"Using model {config['model_choice']}")

@@ -6,10 +6,10 @@ from .utils import load_config_file, tokens_to_chars
 
 
 class BaseLLM:
-    def __init__(self, config: Dict):
+    def __init__(self, config: Dict, verbose: bool):
         self.prompt_template = config["prompt_template"]
         self.summarize_template = config["summarize_template"]
-        self.verbose = config["verbose"]
+        self.verbose = verbose
 
         # The 'context_length' attribute should be set in child classes for specific LLM implementations
         self.context_length = None
@@ -92,11 +92,11 @@ class BaseLLM:
 
 
 class LocalLLM(BaseLLM):
-    def __init__(self, config_file: str):
+    def __init__(self, config_file: str, verbose: bool):
         """Initialize the local LLM with configuration from a file."""
         config = load_config_file(config_file)
 
-        super().__init__(config)
+        super().__init__(config, verbose)
 
         self.model_choice = config["model_choice"]
         self.context_length = config["context_length"]
