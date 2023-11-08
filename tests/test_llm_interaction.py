@@ -1,11 +1,12 @@
 import unittest
+import toml
 
-from arxamination.llm_interaction import LocalLLM
+from arxamination.llm_interaction import llm_factory
 
 
 class TestLocalLLM(unittest.TestCase):
-    def test_get_LLM_response(self):
-        local_llm = LocalLLM("config.json")
+    def test_get_local_LLM_response(self):
+        local_llm = llm_factory("local", toml.load("config.toml"))
 
         query = "Hello, how are you?"
         response = local_llm.get_LLM_response(query)
