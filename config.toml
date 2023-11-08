@@ -1,0 +1,19 @@
+model_choice = "orca-mini-3b-gguf2-q4_0.gguf"
+context_length = 2048
+max_output_tokens = 200
+prompt_template = """You are a research assistant with expertise in analyzing chunks of an article and answering questions based on the text. Be concise and to the point. If the chunk is not relevant for answering the question, just respond blank. Please answer the question: '{question}' based solely on the information in the following chunk of the article:\n{chunk}\n\nAnswer:"""
+summarize_template = """You are a research assistant tasked with summarizing answers from different chunks of an article. Summarize the answers to the question: '{question}'.\nAnswers: {answers}\n\nSummarized answer:"""
+
+questions = [
+    "What are the key takeaways and insights?",
+    "Do the authors evaluate the proposed method on real-world data?",
+    "Do the authors discuss potential downsides or limitations of their proposed algorithm?",
+    "Are there any novel or innovative contributions in this paper?",
+    "Are there relevant related works and comparisons with them?",
+    "Do the authors mention future directions or areas for further research?",
+    "Is there a real-world application or use case for the proposed approach?",
+    "Are there any surprising or unexpected findings in the paper?",
+    "What datasets and benchmarks are used in the experiments?",
+    "What are keywords you would use to summarize the research?",
+    "What are practical applications or domains where the findings of this research could be applied?"
+]

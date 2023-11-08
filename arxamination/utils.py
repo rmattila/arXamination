@@ -1,12 +1,12 @@
-import json
+import toml
 
 
 def load_config_file(file_path: str):
     try:
         with open(file_path, "r") as config_file:
-            config = json.load(config_file)
+            config = toml.load(config_file)
         return config
-    except (FileNotFoundError, json.JSONDecodeError) as e:
+    except (FileNotFoundError, toml.TomlDecodeError) as e:
         print(f"Error loading config file: {e}")
         return None
 

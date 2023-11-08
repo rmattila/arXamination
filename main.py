@@ -34,7 +34,7 @@ def main():
         return
 
     # Load config and LLM
-    config_file = "config.json"
+    config_file = "config.toml"
     llm = LocalLLM(config_file, verbose=args.verbose)
     config = load_config_file(config_file)
 
