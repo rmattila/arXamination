@@ -1,6 +1,28 @@
-chunk_margin_factor = 0.5
-prompt_template = """You are a research assistant with expertise in analyzing chunks of an article and answering questions based on the text. Be concise and to the point. If the chunk is not relevant for answering the question, just respond blank. Please answer the question: '{question}' based solely on the information in the following chunk of the article:\n{chunk}\n\nAnswer:"""
-summarize_template = """You are a research assistant tasked with summarizing answers from different chunks of an article. Summarize the answers to the question: '{question}'.\nAnswers: {answers}\n\nSummarized answer:"""
+chunk_margin_factor = 0.75
+
+prompt_template = """
+You are a research assistant with expertise in analyzing chunks of an article and answering questions based on the text. 
+Be concise and to the point. 
+If the chunk is not relevant for answering the question, say that it does not contain information relevant for the question. 
+Now, please try to answer the question: '{question}' based solely on the information in the following chunk of the article:
+
+{chunk}
+
+Answer (Be brief and clear, and explicitly mention if the chunk does not contain relevant information for the question):
+"""
+
+summarize_template = """
+A question has been posed about an article.
+The article has been divided into chunks, and an answer has been determined for each chunk.
+Your role now is to synthesize the final answer for the entire article exclusively from these chunk-based answers.
+
+The question is: '{question}'.
+
+Answers from each chunk:
+{answers}
+
+Final answer for the whole text (Your response should accurately reflect the presence or absence of relevant information in the article, even if it's found in just one or a few chunks. Keep your response concise and focused. DO NOT mention or refer to chunks in your final answer.):
+"""
 
 questions = [
     "What are the key takeaways and insights?",
@@ -22,8 +44,11 @@ questions = [
     model_name = "orca-mini-3b-gguf2-q4_0.gguf" 
     context_length = 2048
     max_output_tokens = 200
+    delay = 0.5 # delay between requests in seconds
 
     [models.openai]
     model_name = "gpt-3.5-turbo"
     context_length = 4096
     api_key = "" # leave blank if specified in environment variable (OPENAI_API_KEY)
+    temperature = 0.0
+    delay = 0.5 # delay between requests in seconds
