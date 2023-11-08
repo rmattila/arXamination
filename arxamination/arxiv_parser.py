@@ -3,7 +3,7 @@ import requests
 from pdfminer.high_level import extract_text
 
 
-def process_arxiv(arxiv_id: str, download_dir: str = "documents"):
+def process_arxiv(arxiv_id: str, download_dir: str = "documents") -> str:
     """
     Fetch and process an arXiv article.
 
