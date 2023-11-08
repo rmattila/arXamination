@@ -1,12 +1,14 @@
 from tqdm import tqdm
 import json
-from gpt4all import GPT4All
 from typing import List, Dict
 
 from transformers import GPT2Tokenizer
 from transformers import logging as trfms_log
 
 trfms_log.set_verbosity_error()
+
+from gpt4all import GPT4All
+from openai import OpenAI
 
 
 class BaseLLM:
@@ -131,9 +133,25 @@ class OpenAILLM(BaseLLM):
     def __init__(self, config: Dict, verbose: bool):
         super().__init__(config, verbose)
 
-        raise NotImplementedError(
-            "Support for OpenAI API has not been implemented yet."
+        # Check if API key is specified in config, otherwise let OpenAI default to
+        # extracting it from environment variable
+        if config.get("api_key", None):
+            self.client = OpenAI(api_key=config["api_key"])
+
+            if self.verbose:
+                tqdm.write("Using OpenAI API key specified in config file")
+        else:
+            self.client = OpenAI()
+
+            if self.verbose:
+                tqdm.write("Using OpenAI API key from environment variable")
+
+    def get_LLM_response(self, prompt):
+        response = self.client.chat.completions.create(
+            model=self.config["model_name"],
+            messages=[{"role": "user", "content": prompt}],
         )
+        return response.choices[0].message.content
 
 
 def llm_factory(model_key, config, verbose=True) -> BaseLLM:
