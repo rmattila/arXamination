@@ -1,14 +1,17 @@
 import toml
 
 
+class ConfigLoadError(Exception):
+    pass
+
+
 def load_config_file(file_path: str):
     try:
         with open(file_path, "r") as config_file:
             config = toml.load(config_file)
         return config
     except (FileNotFoundError, toml.TomlDecodeError) as e:
-        print(f"Error loading config file: {e}")
-        return None
+        raise ConfigLoadError(f"Error loading config file: {file_path}") from e
 
 
 def tokens_to_chars(token_count: int):
