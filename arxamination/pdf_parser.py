@@ -120,7 +120,7 @@ def process_pdf(pdf_file_path) -> str:
         # Extract text from the pdf
         with open(pdf_file_path, "rb") as pdf_file:
             pdf_text = extract_text(pdf_file)
-    except (PDFSyntaxError, IOError):
+    except (PDFSyntaxError, IOError) as e:
         raise PDFExtractionError(f"Error extracting text from {pdf_file_path}: {e}")
 
     if not pdf_text:
