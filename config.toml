@@ -13,6 +13,7 @@ summarize_template = """
 A question has been posed about an article.
 The article has been divided into chunks, and an answer has been determined for each chunk.
 Your role now is to synthesize the final answer for the entire article exclusively from these chunk-based answers.
+The final answer should be, at most, a paragraph long.
 
 The question is: '{question}'.
 
