@@ -1,6 +1,22 @@
 # arXamination
 
-`arXamination` is a helpful tool powered by a Large Language Model (LLM) that streamlines the initial review of academic papers, including but not limited to arXiv papers. It efficiently provides insights into key aspects of research papers, helping users quickly gauge their quality and relevance. Whether you're a researcher, student, or professional, this tool offers a convenient way to identify essential information in academic papers, saving you time and effort during the paper selection process. Make your research endeavors more manageable with `arXamination`.
+<p align="center">
+    <img src="arxamination_computer_small.jpg" width="375">
+</p>
+
+`arXamination` is a helpful tool powered by a [Large Language Model (LLM)](https://en.wikipedia.org/wiki/Large_language_model) that streamlines the initial review of academic papers, including but not limited to arXiv papers. It efficiently provides insights into key aspects of research papers, helping users quickly gauge their quality and relevance. Whether you're a researcher, student, or professional, this tool offers a convenient way to identify essential information in academic papers, saving you time and effort during the paper selection process. Make your research endeavors more manageable with `arXamination`.
+
+## Usage
+
+Run the `arxamination` tool with an arXiv article ID, a URL to a PDF, or a path to a local PDF file as a command-line argument. For example:
+
+```shell
+arxamination 1706.03762                     # For an arXiv article
+arxamination http://example.com/paper.pdf   # For a paper available via URL
+arxamination /path/to/your/file.pdf         # For a local PDF file
+```
+
+The tool will fetch, if necessary, and analyze the specified article.
 
 ![Screenshot of arXaminator analyzing the Transformers-paper](screenshot.png)
 
@@ -37,17 +53,6 @@ Next, install the `arxamination` package itself. This step is necessary for user
 pip install .
 ```
 
-## Usage
-
-Run the `arxamination` tool with an arXiv article ID, a URL to a PDF, or a path to a local PDF file as a command-line argument. For example:
-
-```shell
-arxamination 1706.03762                     # For an arXiv article
-arxamination http://example.com/paper.pdf   # For a paper available via URL
-arxamination /path/to/your/file.pdf         # For a local PDF file
-```
-
-The tool will fetch, if necessary, and analyze the specified article.
 
 
 ## What LLM is used? Do I need an API key?
