@@ -16,7 +16,7 @@ arxamination http://example.com/paper.pdf   # For a paper available via URL
 arxamination /path/to/your/file.pdf         # For a local PDF file
 ```
 
-The tool will fetch, if necessary, and analyze the specified article.
+The tool will fetch, if necessary, and analyze the specified article:
 
 ![Screenshot of arXaminator analyzing the Transformers-paper](screenshot.png)
 
